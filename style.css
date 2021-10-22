@@ -125,7 +125,7 @@ section {
 
 .home {
   min-height: 85vh;
-  background: url(../images/house-2.jpg) no-repeat;
+  background: url(/images/image-10.jpg) no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
