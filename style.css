@@ -470,6 +470,7 @@ section {
 
 .footer .footer-container .credit span {
   color: var(--main-color);
+  text-transform: none;
 }
 
 
