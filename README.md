@@ -1,8 +1,7 @@
 
 # Housed.
 
-This is a front end project 
-of a real estate website.
+This is a front end project of a real estate website.
 
 Housed has four sections namely: Home, Services, Featured and Contact.
 The hero section contains a search bar that takes an input of a two 
