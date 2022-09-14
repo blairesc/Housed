@@ -14,6 +14,8 @@ displays three properties with its rent, square footage, bedroom and bathroom in
 The contact section lists the contact information with a contact form
 and a map that shows the location.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e430e7de-b664-417d-a285-b565560005af/deploy-status)](https://app.netlify.com/sites/jocular-cocada-64643d/deploys)
+
 ## Video Demo
 https://user-images.githubusercontent.com/59707565/183533084-ff07a1bd-0dbd-492e-bf4f-2493e550b890.mp4
 
