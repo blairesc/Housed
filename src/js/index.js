@@ -4,10 +4,6 @@ let searchInput = document.getElementById('search-input');
 let searchBtn = document.querySelector('.search-icon');
 let featuredList = document.querySelector('.featured-list');
 
-let options = config.OPTIONS;
-let streetViewKey = config.STREET_VIEW_KEY;
-
-
 menu.onclick = () =>{
     navbar.classList.toggle('active');
     menu.classList.toggle('fa-times');
@@ -40,8 +36,7 @@ function displayResults(response) {
     let html = ""; 
     if (response.length !== 0) {
         response.forEach(data => {
-            let imgSrc = 'https://maps.googleapis.com/maps/api/streetview?size=500x500&location='
-                        + data.latitude + ',' + data.longitude + '&fov=80&heading=70&pitch=0&key=' + streetViewKey;
+            let imgSrc = `/.netlify/functions/google-api?location=${data.latitude},${data.longitude}`;
 
             html += `
             <div class="box">
@@ -87,7 +82,7 @@ function displayResults(response) {
 
 //Displays cards that shows random rental information from api
 function getFeaturedList(){
-    fetch('https://realty-mole-property-api.p.rapidapi.com/rentalListings?limit=3', options)
+    fetch(`/.netlify/functions/realty-api?limit=3`)
         .then(response => response.json())
         .then(response => {
            let html = displayResults(response); 
@@ -103,7 +98,7 @@ function getSearchList(){
     let searchInputText = searchInput.value.trim().toUpperCase();
   
     if (validateInput(searchInputText)) {
-        fetch(`https://realty-mole-property-api.p.rapidapi.com/rentalListings?state=${searchInputText}&limit=9`, options)
+        fetch(`/.netlify/functions/realty-api?state=${searchInputText}&limit=9`)
         .then(response => response.json())
         .then(response => {
             let headingHtml = `<h1 class="heading"><span>${searchInputText}</span> listings </h1>`; 
