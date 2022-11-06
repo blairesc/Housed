@@ -314,6 +314,7 @@ section {
 .fbox-container .box .content .details h3 {
   flex: 1;
   padding: 1rem;
+  height: 60px;
   border: .1rem solid rgba(0, 0, 0, 0.1);
   color: #999;
   font-size: 1.4rem;
