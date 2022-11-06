@@ -37,7 +37,7 @@ function displayResults(response) {
     if (response.length !== 0) {
         response.forEach(data => {
             let imgSrc = `/.netlify/functions/google-api?location=${data.latitude},${data.longitude}`;
-
+            
             html += `
             <div class="box">
                 <div class="image-container">ty676
@@ -63,9 +63,9 @@ function displayResults(response) {
                         <p>${data.city}, ${data.state}, ${data.zipCode}</p>
                     </div>
                     <div class="details">
-                        <h3> <i class="fas fa-expand"></i> ${data.squareFootage} sqft</h3>
-                        <h3> <i class="fas fa-bed"></i> ${data.bedrooms} </h3>
-                        <h3> <i class="fas fa-bath"></i> ${data.bathrooms} </h3>
+                        <h3> <i class="fas fa-expand"></i> ${data.squareFootage ? data.squareFootage : 'N/A'} sqft</h3>
+                        <h3> <i class="fas fa-bed"></i> ${data.bedrooms ? data.bedrooms : 'N/A'} </h3>
+                        <h3> <i class="fas fa-bath"></i> ${data.bathrooms ? data.bathrooms : 'N/A'} </h3>
                     </div>
                     <div class="buttons">
                         <a href="#" class="btn"> request info</a>
@@ -82,12 +82,12 @@ function displayResults(response) {
 
 //Displays cards that shows random rental information from api
 function getFeaturedList(){
-    fetch(`/.netlify/functions/realty-api?limit=3`)
+    fetch(`/.netlify/functions/realty-api?state=NJ&limit=3`)
         .then(response => response.json())
         .then(response => {
            let html = displayResults(response); 
            featuredList.innerHTML = html;
-    });
+        });
 };
 
 getFeaturedList();

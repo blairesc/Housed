@@ -1,36 +1,33 @@
-const process = require('process')
-import fetch from 'node-fetch';
-
+const axios = require('axios')
 const qs = require('qs')
 
-const handler = async function (event) {
+exports.handler = async (event) => {
   const API_PARAMS = qs.stringify(event.queryStringParameters)
   const { REALTY_API_SECRET } = process.env;
-  const URL = `https://realty-mole-property-api.p.rapidapi.com/rentalListings?${API_PARAMS}`;
 
   const options = {
     method: 'GET',
+    url: `https://realty-mole-property-api.p.rapidapi.com/rentalListings?${API_PARAMS}`,
     headers: {
       'X-RapidAPI-Key': REALTY_API_SECRET,
       'X-RapidAPI-Host': 'realty-mole-property-api.p.rapidapi.com'
     }
   };
 
-  try {
-    const response = await fetch(URL, options)
-      .then((response) => response.json())
-      .catch((error) => console.error(error));
+   try {
+    const { data } = await axios.request(options)
+
     return {
       statusCode: 200,
-      body: JSON.stringify(response),
+      body: JSON.stringify(data)
     }
+
   } catch (error) {
-    const { data, headers, status, statusText } = error.response
+    const { status, statusText, headers, data } = error.response
     return {
       statusCode: error.response.status,
-      body: JSON.stringify({ status, statusText, headers, data }),
+      body: JSON.stringify({status, statusText, headers, data})
     }
   }
-}
+};
 
-module.exports = { handler }
