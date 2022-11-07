@@ -20,7 +20,7 @@ https://user-images.githubusercontent.com/59707565/183533084-ff07a1bd-0dbd-492e-
 
 
 ## Live Link
-
+https://housed-realty.netlify.app/
 
 
 
