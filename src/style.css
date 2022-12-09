@@ -126,7 +126,7 @@ section {
 .home {
   min-height: 85vh;
   background: url(https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&dpr=2) no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   background-position: center;
   background-attachment: fixed;
   display: flex;
@@ -184,11 +184,11 @@ section {
 }
 
 .services .box-container .box {
-  flex: 1 1 30rem;
+  flex: 1 1 30%;
   border-radius: 0.5rem;
-
   text-align: center;
   padding: 1rem;
+
 }
 
 .services .box-container .box h3 {
@@ -211,7 +211,7 @@ section {
   border-radius: 0.5rem;
   overflow: hidden;
   background: #fff;
-  flex: 1 1 30rem;
+  flex: 1 1 30%;
 }
 
 .fbox-container .box .image-container {
@@ -490,7 +490,9 @@ section {
   section {
     padding: 1.5rem;
   }
+
 }
+
 
 @media (max-width: 768px) {
   header .icons #menu-bars {
@@ -522,9 +524,11 @@ section {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
   }
+
+  
 }
 
-@media (max-width: 450px) {
+@media (max-width: 480px) {
   html {
     font-size: 50%;
   }
@@ -532,4 +536,16 @@ section {
   .contact .row form .inputBox input {
     width: 100%;
   }
+
+  .fbox-container {
+    padding-left: 13%;
+  }
+
+  .fbox-container .box {
+    flex: 0 0 auto;
+  
+  }
+
 }
+
+
